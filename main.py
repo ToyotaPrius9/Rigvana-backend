@@ -1929,8 +1929,7 @@ async def delete_comment(
 
 
 
-are post"
-        )
+
     
 
 @app.post('/follow-user')
