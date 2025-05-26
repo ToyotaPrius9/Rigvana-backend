@@ -40,7 +40,19 @@ app = FastAPI(
 
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate("nuclearlaunchcode.json")
+    # Get credentials from environment variable
+    firebase_credentials_str = os.getenv("FIREBASE_CREDENTIALS_JSON")
+    
+    if not firebase_credentials_str:
+        raise Exception("FIREBASE_CREDENTIALS_JSON is not set")
+
+    # Parse the JSON string into a dictionary
+    firebase_credentials_dict = json.loads(firebase_credentials_str)
+
+    # Create credentials object from dictionary
+    cred = credentials.Certificate(firebase_credentials_dict)
+
+    # Initialize Firebase app with storage bucket
     firebase_admin.initialize_app(cred, {
         "storageBucket": "rigvana445.firebasestorage.app"
     })
