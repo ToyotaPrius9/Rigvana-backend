@@ -1929,37 +1929,7 @@ async def delete_comment(
 
 
 
-@app.post('/forum/posts/{post_id}/share',
-          summary="Share a post",
-          description="Increment the share count of a post",
-          response_description="Updated share count")
-async def share_post(
-    post_id: str,
-    credentials: HTTPAuthorizationCredentials = Depends(security)
-):
-    try:
-        decoded_token = auth.verify_id_token(credentials.credentials)
-    except Exception:
-        raise HTTPException(status_code=401, detail="Invalid or expired token")
-
-    try:
-        post_ref = db.collection("forum_posts").document(post_id)
-        post_doc = post_ref.get()
-
-        if not post_doc.exists:
-            raise HTTPException(status_code=404, detail="Post not found")
-
-        post_ref.update({
-            "shares": firestore.Increment(1)
-        })
-
-        return {"message": "Post shared successfully"}
-
-    except Exception as e:
-        print(f"Error sharing post: {str(e)}")
-        raise HTTPException(
-            status_code=500,
-            detail="Failed to share post"
+are post"
         )
     
 
