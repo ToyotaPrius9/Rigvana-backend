@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+firebase-admin
+pyrebase4
+python-dotenv
+pydantic
+requests
+google-cloud-firestore
+google-api-core
+pycryptodome
