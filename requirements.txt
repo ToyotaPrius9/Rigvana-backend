@@ -1,10 +1,14 @@
-fastapi
-uvicorn
-firebase-admin
-pyrebase4
-python-dotenv
-pydantic
-requests
-google-cloud-firestore
-google-api-core
-pycryptodome
+fastapi==0.103.1
+uvicorn==0.23.2
+firebase-admin==6.2.0
+pyrebase4==4.5.0
+python-dotenv==1.0.0
+pydantic==2.4.2
+requests==2.31.0
+google-cloud-firestore==2.11.1
+google-api-core==2.11.1
+pycryptodome==3.19.0
+python-multipart==0.0.6
+smtplib==0.0.1  # (Built-in Python lib, but included for clarity)
+email-validator==2.0.0.post2  # (For Pydantic email validation if used)
+aiohttp==3.8.5  # (Optional, for async HTTP requests)
