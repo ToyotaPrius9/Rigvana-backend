@@ -2166,6 +2166,7 @@ async def get_user_posts(
             # Clean out unserializable data
             post_list.append(clean_firestore_data(post_data))
 
+        # Return empty list if no posts found
         return JSONResponse(content=post_list)
 
     except firebase_admin.auth.InvalidIdTokenError:
